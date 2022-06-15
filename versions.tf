@@ -2,7 +2,7 @@ terraform {
     required_providers {
         ansible = {
             source = "nbering/ansible"
-            version = "2.11.12"
+            version >= "1.0.0"
         }
         alicloud = {
             source = "aliyun/alicloud"
