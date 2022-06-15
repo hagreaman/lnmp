@@ -1,0 +1,27 @@
+---
+- name: copy RpmFile
+  copy:
+    src: ../files/mysql80-community-release-el7-6.noarch.rpm
+    dest: ~/mysql80-community-release-el7-6.noarch.rpm
+  listen: install mysql
+# 添加仓库
+- name: add Repo
+  listen: install mysql
+  ignore_errors: true
+  shell: "rpm -Uvh ~/mysql80-community-release-el7-6.noarch.rpm"
+
+  # 导入GPG
+- name: Import a key from a url
+  listen: install mysql
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+  # 安装mysql
+- name : Install
+  listen: install mysql
+  yum:
+    name:
+    - mysql-community-server*
+    - mysql-community-devel*
+    - MySQL-python
+    state: present
