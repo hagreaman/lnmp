@@ -1,5 +1,5 @@
 provider "alicloud" {
-    region  = "cn-beijing"
+    region  = "cn-hangzhou"
 }
 
 data "alicloud_zones" "default" {
