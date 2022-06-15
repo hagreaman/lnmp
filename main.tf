@@ -61,7 +61,7 @@ resource "alicloud_instance" "web" {
     instance_charge_type = "PostPaid"
     # 计费策略，按量付费，竞价抢占
     spot_strategy ="SpotAsPriceGo"
-    key_name = alicloud_ecs_key_pair.default.key_name
+    #key_name = alicloud_ecs_key_pair.default.key_name
     # 交换机id 
     vswitch_id = alicloud_vswitch.vswitch.id
     # 峰值带宽
@@ -70,15 +70,6 @@ resource "alicloud_instance" "web" {
     count = var.instance_number
 }
 
-
-// 使用弹性IP
-resource "alicloud_eip_address" "eip" {
-}
-// 关联弹性IP到实例
-resource "alicloud_eip_association" "eip_asso" {
-  allocation_id = alicloud_eip_address.eip.id
-  instance_id = alicloud_instance.web[count].id
-}
 
 
 # ansible_host
