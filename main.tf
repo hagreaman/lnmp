@@ -1,6 +1,9 @@
 provider "alicloud" {
-    region  = "cn-hangzhou"
+  access_key = "LTAI5tQmGdTAzSHhGhaXDVQk"
+  secret_key = "Hyr0WhaJI3AvxttLYYTKNJksVcgro9"
+  region     = "cn-hangzhou"
 }
+
 
 data "alicloud_zones" "default" {
  available_disk_category = "cloud_efficiency"
@@ -64,7 +67,7 @@ resource "alicloud_instance" "web" {
     # 峰值带宽
     internet_max_bandwidth_out = 0
     # 数量
-    count = 1
+    count = instance_number
 }
 
 
@@ -74,7 +77,7 @@ resource "alicloud_eip_address" "eip" {
 // 关联弹性IP到实例
 resource "alicloud_eip_association" "eip_asso" {
   allocation_id = alicloud_eip_address.eip.id
-  instance_id = alicloud_instance.web[1].id
+  instance_id = alicloud_instance.web[instance_number].id
 }
 
 
