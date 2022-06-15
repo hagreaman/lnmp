@@ -42,6 +42,10 @@ resource "alicloud_ecs_key_pair" "default" {
   key_pair_name = var.key_name
   public_key    = var.public_key
 }
+local {
+  replications = 1
+}
+
 # ECS
 resource "alicloud_instance" "web" {
     // 可用区
@@ -67,7 +71,7 @@ resource "alicloud_instance" "web" {
     # 峰值带宽
     internet_max_bandwidth_out = 0
     # 数量
-    count = var.instance_number
+    count = local.replications
 }
 
 // 使用弹性IP
