@@ -77,7 +77,7 @@ resource "alicloud_eip_address" "eip" {
 // 关联弹性IP到实例
 resource "alicloud_eip_association" "eip_asso" {
   allocation_id = alicloud_eip_address.eip.id
-  instance_id = alicloud_instance.web[1].id
+  instance_id = alicloud_instance.web[count].id
 }
 
 
