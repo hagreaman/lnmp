@@ -1,5 +1,5 @@
 # 测试环境配置
-zone = "cn-beijing-k"
+zone = "cn-hangzhou-k"
 # instance_type = "ecs.s6-c1m1.small"
 instance_type = "ecs.t6-c1m2.large"
 # instance_type = "ecs.t5-c1m1.xlarge"
