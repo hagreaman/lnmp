@@ -70,6 +70,15 @@ resource "alicloud_instance" "web" {
     count = var.instance_number
 }
 
+// 使用弹性IP
+resource "alicloud_eip_address" "eip" {
+}
+// 关联弹性IP到实例
+resource "alicloud_eip_association" "eip_asso" {
+  allocation_id = alicloud_eip_address.eip.id
+  instance_id = alicloud_instance.web[count.index].id
+}
+
 
 
 # ansible_host
