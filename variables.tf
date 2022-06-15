@@ -10,7 +10,7 @@ variable "region" {
 }
 
 variable "zone" {
-  default = "cn-hangzhou-k"
+  default = "cn-hangzhou-c"
 
 }
 
