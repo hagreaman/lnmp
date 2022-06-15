@@ -6,11 +6,11 @@ variable "instance_number" {
 }
 
 variable "region" {
-  default = "cn-beijing"
+  default = "cn-hangzhou"
 }
 
 variable "zone" {
-  default = "cn-beijing-k"
+  default = "cn-hangzhou-k"
 
 }
 
