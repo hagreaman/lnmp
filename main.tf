@@ -67,7 +67,7 @@ resource "alicloud_instance" "web" {
     # 峰值带宽
     internet_max_bandwidth_out = 0
     # 数量
-    count = instance_number
+    count = var.instance_number
 }
 
 
@@ -77,7 +77,7 @@ resource "alicloud_eip_address" "eip" {
 // 关联弹性IP到实例
 resource "alicloud_eip_association" "eip_asso" {
   allocation_id = alicloud_eip_address.eip.id
-  instance_id = alicloud_instance.web[instance_number].id
+  instance_id = alicloud_instance.web[var.instance_number].id
 }
 
 
