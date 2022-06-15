@@ -2,7 +2,7 @@ variable "name" {
  default = "auto_provisioning_group"
 }
 variable "instance_number" {
-  default = 1
+  default = 2
 }
 
 variable "region" {
