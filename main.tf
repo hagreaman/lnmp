@@ -64,7 +64,7 @@ resource "alicloud_instance" "web" {
     # 峰值带宽
     internet_max_bandwidth_out = 0
     # 数量
-    count = var.instance_number
+    count = 1
 }
 
 
